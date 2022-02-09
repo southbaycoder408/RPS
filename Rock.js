@@ -18,7 +18,8 @@ function computerPlay()
 }
 
 console.log(computerPlay());
-}
+
+
 //return value of either rock, paper, scissor
 
 //declare function for single round of Rock Paper Scissors called playRound
