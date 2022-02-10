@@ -19,8 +19,8 @@ function playRound(playerSelection, computerSelection) { //declare function for 
   let userChoice = "User: ";
   let computerChoice = "Computer: "
 
-  console.log("You: " + playerSelection);
-  console.log("Computer: " + computerSelection);
+  console.log("     You played " + playerSelection);
+  console.log("Computer played " + computerSelection);
 
   if (playerSelection == computerSelection) {
     return tie;
@@ -65,29 +65,19 @@ function game(){
       ++tieScore;
     }
   }
-
+  console.log("TOTAL SCORE");
   console.log("Player Points: " + playerScore);
   console.log("Computer Points: " + computerScore);
   console.log("Tie Points: " + tieScore);
 
   if(playerScore < computerScore){
-    alert("Defeat");
+    alert("SHAMEFUL");
   }
   else if(playerScore > computerScore){
-    alert("Victory");
+    alert("VICTORIOUS");
   }
   else if(playerScore == computerScore){
-    alert("Tied");
+    alert("Meh...");
   }
 
 }
-
-
-
-//return string that declares winner of round "You Lose! Paper beats Rock"
-
-//declare a function called game().
-//call playRound inside 5 times
-//report winner/loser at end
-
-//prompt() user for input
