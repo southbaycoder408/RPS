@@ -10,43 +10,81 @@ function computerPlay() //make function called computerPlay and set parameter fo
     return "scissor";
   }
 }
-function playRound(playerSelection, computerSelection) {//declare function for single round of Rock Paper Scissors called playRound and allow functions to take 2 parameters (playerSelection) and (computerSelection)
 
-let userWins = "User Wins!!!"
-let userLose = "Computer Wins!!!"
-let userChoice = "User Choice: "
-let computerChoice = "Computer Choice: "
+function playRound(playerSelection, computerSelection) { //declare function for single round of Rock Paper Scissors called playRound and allow functions to take 2 parameters (playerSelection) and (computerSelection)
 
-console.log("User Choice: " + playerSelection);
-console.log("Computer Choice: " + computerSelection);
+  let userWins = "You win!"; //return string that declares winner of round "You Lose! Paper beats Rock"
+  let userLose = "You lose!"; //return string that declares winner of round "You Lose! Paper beats Rock"
+  let tie = "It's a Tie!";
+  let userChoice = "User: ";
+  let computerChoice = "Computer: "
+
+  console.log("You: " + playerSelection);
+  console.log("Computer: " + computerSelection);
 
   if (playerSelection == computerSelection) {
-    return alert("It's a Tie!!!");
+    return tie;
   } else if (playerSelection == "rock" && computerSelection == "scissor") {
-    return alert(userWins);
-  } else if (playerSelection == "rock" && computerSelection == "paper"){
-    return alert(userLose);
-  } else if (playerSelection == "paper" && computerSelection == "scissor"){
-    return alert(userLose);
-  } else if (playerSelection == "paper" && computerSelection == "rock"){
-    return alert(userWins);
-  } else if (playerSelection == "scissor" && computerSelection == "rock"){
-    return alert(userLose);
-  } else if (playerSelection == "scissor" && computerSelection == "paper"){
-    return alert(userWins);
+    return userWins;
+  } else if (playerSelection == "rock" && computerSelection == "paper") {
+    return userLose;
+  } else if (playerSelection == "paper" && computerSelection == "scissor") {
+    return userLose;
+  } else if (playerSelection == "paper" && computerSelection == "rock") {
+    return userWins;
+  } else if (playerSelection == "scissor" && computerSelection == "rock") {
+    return userLose;
+  } else if (playerSelection == "scissor" && computerSelection == "paper") {
+    return userWins;
+  }
+}
+
+function game(){
+  let win = "You win!";
+  let lose = "You lose!";
+  let tie = "It's a Tie!";
+  let playerScore = 0;
+  let computerScore =0;
+  let tieScore = 0;
+
+  for (let i = 0; i < 5; i++) {
+
+    let playerSelection = prompt("Choose Rock, Paper, or Scissors");
+    playerSelection = playerSelection.toLowerCase(); //player parameter needs to be case insensitive
+    let computerSelection = computerPlay();
+    let score = playRound(playerSelection, computerSelection);
+
+    if(score == win)
+    {
+      ++playerScore;
+    }
+    else if(score == lose){
+      ++computerScore;
+    }
+    else if(score == tie){
+      ++tieScore;
+    }
+  }
+
+  console.log("Player Points: " + playerScore);
+  console.log("Computer Points: " + computerScore);
+  console.log("Tie Points: " + tieScore);
+
+  if(playerScore < computerScore){
+    alert("Defeat");
+  }
+  else if(playerScore > computerScore){
+    alert("Victory");
+  }
+  else if(playerScore == computerScore){
+    alert("Tied");
   }
 
 }
 
-let playerSelection = prompt("Choose Rock, Paper, or Scissors");
-playerSelection = playerSelection.toLowerCase();
-let computerSelection = computerPlay();
 
-
-playRound(playerSelection, computerSelection)
 
 //return string that declares winner of round "You Lose! Paper beats Rock"
-//player parameter needs to be case insensitive
 
 //declare a function called game().
 //call playRound inside 5 times
