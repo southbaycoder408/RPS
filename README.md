@@ -1,2 +1,2 @@
-# tictactoe
+# rockpaperscissors
 top project
