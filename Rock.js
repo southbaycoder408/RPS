@@ -12,6 +12,12 @@ function computerPlay() //make function called computerPlay and set parameter fo
 }
 
 function playRound(playerSelection, computerSelection) { //declare function for single round of Rock Paper Scissors called playRound and allow functions to take 2 parameters (playerSelection) and (computerSelection)
+  
+ // const btn = document.querySelector('#btn1');
+ // btn.addEventListener('click', () => {
+ //   alert("Hello World");
+//  });
+
 
   let userWins = "You win!"; //return string that declares winner of round "You Lose! Paper beats Rock"
   let userLose = "You lose!"; //return string that declares winner of round "You Lose! Paper beats Rock"
@@ -47,24 +53,24 @@ function game(){
   let computerScore =0;
   let tieScore = 0;
 
-  for (let i = 0; i < 5; i++) {
+  // for (let i = 0; i < 5; i++) {
 
-    let playerSelection = prompt("Choose Rock, Paper, or Scissors");
-    playerSelection = playerSelection.toLowerCase(); //player parameter needs to be case insensitive
-    let computerSelection = computerPlay();
-    let score = playRound(playerSelection, computerSelection);
+  //   let playerSelection = prompt("Choose Rock, Paper, or Scissors");
+  //   playerSelection = playerSelection.toLowerCase(); //player parameter needs to be case insensitive
+  //   let computerSelection = computerPlay();
+  //   let score = playRound(playerSelection, computerSelection);
 
-    if(score == win)
-    {
-      ++playerScore;
-    }
-    else if(score == lose){
-      ++computerScore;
-    }
-    else if(score == tie){
-      ++tieScore;
-    }
-  }
+  //   if(score == win)
+  //   {
+  //     ++playerScore;
+  //   }
+  //   else if(score == lose){
+  //     ++computerScore;
+  //   }
+  //   else if(score == tie){
+  //     ++tieScore;
+  //   }
+  // }
   console.log("TOTAL SCORE");
   console.log("Player Points: " + playerScore);
   console.log("Computer Points: " + computerScore);
