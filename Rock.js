@@ -1,3 +1,19 @@
+const container = document.querySelector('#container');
+const result = document.createElement('p');
+const score = document.createElement('p');
+result.classList.add('outcome');
+score.classList.add('scoreCount');
+container.appendChild(score);
+container.appendChild(result);
+
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button => { 
+  button.addEventListener('click', () => {
+    playRound(button.id, computerPlay());
+  })
+}));
+
 function computerPlay() //make function called computerPlay and set parameter for computerPlay for return value
 {
   let choice = Math.floor(Math.random() * 3); //return value of either rock, paper, scissor
@@ -12,33 +28,23 @@ function computerPlay() //make function called computerPlay and set parameter fo
 }
 
 function playRound(playerSelection, computerSelection) { //declare function for single round of Rock Paper Scissors called playRound and allow functions to take 2 parameters (playerSelection) and (computerSelection)
-  
-  console.log("You played " + playerSelection + " while the Computer played " + computerSelection + ".");
+
   playerSelection = playerSelection.toLowerCase();
-  
+
   if (playerSelection == computerSelection) {
-    console.log("It's a Tie!");
+    result.textContent = "You played " + playerSelection + " while the Computer played " + computerSelection + ". Oh...it's a tie.";
+    container.appendChild(result);
     return;
-  } else if (playerSelection == "rock" && computerSelection == "scissor") {
-    console.log("You win!");
+  } else if ((playerSelection == "rock" && computerSelection == "scissor") || (playerSelection == "paper" && computerSelection == "rock") || (playerSelection == "scissor" && computerSelection == "paper")) {
+    result.textContent = "You played " + playerSelection + " while the Computer played " + computerSelection + ". You won this one!!";
+    container.appendChild(result);
     return;
-  } else if (playerSelection == "rock" && computerSelection == "paper") {
-    console.log("You lose!");
+  } else if ((playerSelection == "rock" && computerSelection == "paper") || (playerSelection == "paper" && computerSelection == "scissor") || (playerSelection == "scissor" && computerSelection == "rock")) {
+    result.textContent = "You played " + playerSelection + " while the Computer played " + computerSelection + ". Darn you lost this round!";
+    container.appendChild(result);
     return;
-  } else if (playerSelection == "paper" && computerSelection == "scissor") {
-    console.log("You lose!");
-    return;
-  } else if (playerSelection == "paper" && computerSelection == "rock") {
-    console.log("You win!");
-    return;
-  } else if (playerSelection == "scissor" && computerSelection == "rock") {
-    console.log("You lose!");
-    return;
-  } else if (playerSelection == "scissor" && computerSelection == "paper") {
-    console.log("You win!");
-    return;
-  } else{
-    console.log("ruh roh, a boo boo made");
+  } else {
+    alert("ruh roh, I made a boo boo");
     return;
   }
 }
@@ -85,17 +91,3 @@ function playRound(playerSelection, computerSelection) { //declare function for 
 //   }
 
 // }
-
-const btn1 = document.querySelector('#btn1');
-const btn2 = document.querySelector('#btn2');
-const btn3 = document.querySelector('#btn3');
-
-btn1.addEventListener('click', () => {
-playRound("Rock",computerPlay());  
-});
-btn2.addEventListener('click', () => {
-playRound("Paper",computerPlay());  
-});
-btn3.addEventListener('click', () => {
-playRound("Scissor",computerPlay());  
-});
